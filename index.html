@@ -150,10 +150,10 @@
 				}
 				createUnityInstance(canvas, config, progressHandler).then(function (instance) {
 					canvas = instance.Module.canvas;
-					onResize();
+					// onResize();
 				});
 				// window.addEventListener('resize', onResize);
-				onResize();
+				// onResize();
 
 				if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
 					// Mobile device style: fill the whole browser client area with the game canvas:
