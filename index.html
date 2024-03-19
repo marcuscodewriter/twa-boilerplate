@@ -62,15 +62,6 @@
 				pointer-events: none;
 				transition: all .2s ease;
 		}
-		#viewport:after {
-				content: '';
-				display: block;
-				position: absolute;
-				left: 0;
-				right: 0;
-				top: 0;
-				bottom: 0;
-		}
 	</style>
 </head>
 
@@ -160,10 +151,10 @@
 				}
 				createUnityInstance(canvas, config, progressHandler).then(function (instance) {
 					canvas = instance.Module.canvas;
-					onResize();
+					// onResize();
 				});
 
-				// window.addEventListener('resize', onResize);
+				window.addEventListener('resize', onResize);
 				onResize();
 
 			</script>
