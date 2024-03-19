@@ -152,7 +152,7 @@
 					canvas = instance.Module.canvas;
 					onResize();
 				});
-				window.addEventListener('resize', onResize);
+				// window.addEventListener('resize', onResize);
 				onResize();
 
 				if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
@@ -167,6 +167,7 @@
 	</main>
 	<script src="https://telegram.org/js/telegram-web-app.js"></script>
 	<script>
+		Telegram.WebApp.expand();
 		// Init TWA
 		Telegram.WebApp.ready();
 
@@ -187,7 +188,7 @@
 		});
 
 		Telegram.WebApp.MainButton.show();
-		Telegram.WebApp.expand();
+
 	</script>
 
 </body>
