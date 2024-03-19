@@ -76,7 +76,32 @@
 
 <body>
 	<main>
-		<div id="gameContainer" style="background-color: green; height: 90vh; width: 90vw;">
+		<div id="gameContainer">
+			<script src="https://telegram.org/js/telegram-web-app.js"></script>
+			<script>
+				// Init TWA
+				window.Telegram.WebApp.ready();
+
+				// Event occurs whenever theme settings are changed in the user's Telegram app (including switching to night mode).
+				window.Telegram.WebApp.onEvent('themeChanged', function() {
+						document.documentElement.className = Telegram.WebApp.colorScheme;
+						document.body.setAttribute('style', '--bg-color:' + window.Telegram.WebApp.backgroundColor);
+				});
+
+				window.Telegram.WebApp.setHeaderColor('secondary_bg_color');
+
+				// Show main button
+				window.Telegram.WebApp.MainButton.setParams({
+						text: 'Join Paper Plane'
+				});
+				window.Telegram.WebApp.MainButton.onClick(function () {
+						Telegram.WebApp.openTelegramLink('https://t.me/paperplane_ton');
+				});
+
+				window.Telegram.WebApp.MainButton.show();
+
+				window.Telegram.WebApp.expand();
+			</script>
 			<canvas id="unity-canvas" data-pixel-art=""></canvas>
 			<script src="Build/Paper Plane Web GL.loader.js"></script>
 			<script>
@@ -143,31 +168,5 @@
 			</script>
 		</div>
 	</main>
-	<script src="https://telegram.org/js/telegram-web-app.js"></script>
-	<script>
-		// Init TWA
-		Telegram.WebApp.ready();
-
-		// Event occurs whenever theme settings are changed in the user's Telegram app (including switching to night mode).
-		Telegram.WebApp.onEvent('themeChanged', function() {
-				document.documentElement.className = Telegram.WebApp.colorScheme;
-				document.body.setAttribute('style', '--bg-color:' + Telegram.WebApp.backgroundColor);
-		});
-
-		Telegram.WebApp.setHeaderColor('secondary_bg_color');
-
-		// Show main button
-		Telegram.WebApp.MainButton.setParams({
-				text: 'Join Paper Plane'
-		});
-		Telegram.WebApp.MainButton.onClick(function () {
-				Telegram.WebApp.openTelegramLink('https://t.me/paperplane_ton');
-		});
-
-		Telegram.WebApp.MainButton.show();
-
-		Telegram.WebApp.expand();
-	</script>
-
 </body>
 </html>
