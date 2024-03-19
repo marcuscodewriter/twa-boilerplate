@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8 width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<title>Paper Plane</title>
 	<style>
 		html,
@@ -62,25 +62,6 @@
 				top: 0;
 				bottom: 0;
 		}
-
-		#viewport-params-size,
-		#viewport-params-expand {
-				content: attr(text);
-				position: absolute;
-				display: inline-block;
-				background: var(--tg-theme-link-color, rgb(64, 224, 208));
-				right: 4px;
-				left: auto;
-				font-size: 8px;
-				padding: 4px;
-				vertical-align: top;
-		}
-		#viewport-params-size {
-				top: 4px;
-		}
-		#viewport-params-expand {
-				top: 30px;
-		}
 	</style>
 </head>
 
@@ -100,12 +81,12 @@
 					productName: "Paper Plane",
 					productVersion: "0.3",
 				};
-				var scaleToFit;
-				try {
-					scaleToFit = !!JSON.parse("");
-				} catch (e) {
-					scaleToFit = true;
-				}
+				var scaleToFit = true;
+				// try {
+				// 	scaleToFit = !!JSON.parse("");
+				// } catch (e) {
+				// 	scaleToFit = true;
+				// }
 				function progressHandler(progress) {
 					var percent = progress * 100 + '%';
 					canvas.style.background = 'linear-gradient(to right, white, white ' + percent + ', transparent ' + percent + ', transparent) no-repeat center';
@@ -138,12 +119,11 @@
 				}
 				createUnityInstance(canvas, config, progressHandler).then(function (instance) {
 					canvas = instance.Module.canvas;
-					if (!(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))) {
-						onResize();
-					}
+					onResize();
 				});
 
 				window.addEventListener('resize', onResize);
+				onResize();
 
 				if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
 					// Mobile device style: fill the whole browser client area with the game canvas:
@@ -151,9 +131,6 @@
 					meta.name = 'viewport';
 					meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0';
 					document.getElementsByTagName('head')[0].appendChild(meta);
-				} else {
-					
-					onResize();
 				}
 			</script>
 		</div>
