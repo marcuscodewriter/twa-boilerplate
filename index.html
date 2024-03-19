@@ -170,26 +170,25 @@
 	<script>
 		// Init TWA
 		Telegram.WebApp.ready();
+		Telegram.WebApp.expand();
 
 		// Event occurs whenever theme settings are changed in the user's Telegram app (including switching to night mode).
 		Telegram.WebApp.onEvent('themeChanged', function() {
 				document.documentElement.className = Telegram.WebApp.colorScheme;
+				document.body.setAttribute('style', '--bg-color:' + Telegram.WebApp.backgroundColor);
 		});
+
+		Telegram.WebApp.setHeaderColor('secondary_bg_color');
 
 		// Show main button
 		Telegram.WebApp.MainButton.setParams({
 				text: 'Join Paper Plane'
 		});
 		Telegram.WebApp.MainButton.onClick(function () {
-				Telegram.WebApp.openLink('t.me/paperplane_ton');
+				Telegram.WebApp.openLink('https://t.me/paperplane_ton');
 		});
+
 		Telegram.WebApp.MainButton.show();
-
-		Telegram.WebApp.setHeaderColor('secondary_bg_color');
-
-		Telegram.WebApp.onEvent('themeChanged', function() {
-				document.body.setAttribute('style', '--bg-color:' + Telegram.WebApp.backgroundColor);
-		});
 	</script>
 
 </body>
