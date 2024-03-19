@@ -112,7 +112,7 @@
 					productName: "Paper Plane",
 					productVersion: "0.3",
 				};
-				var scaleToFit;
+				var scaleToFit = true;
 				// try {
 				// 	scaleToFit = !!JSON.parse("");
 				// } catch (e) {
@@ -159,7 +159,7 @@
 					// Mobile device style: fill the whole browser client area with the game canvas:
 					const meta = document.createElement('meta');
 					meta.name = 'viewport';
-					meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0';
+					meta.content = 'width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0';
 					document.getElementsByTagName('head')[0].appendChild(meta);
 				}
 			</script>
