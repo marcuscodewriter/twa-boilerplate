@@ -3,9 +3,18 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8 width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Paper Plane</title>
 	<style>
+		/* html,
+		body {
+			background: #000;
+			width: 100%;
+			height: 100%;
+			overflow: visible;
+			padding: 0;
+			margin: 0;
+		} */
 		html,
 		body {
 			--bg-color: var(--tg-theme-bg-color);
@@ -50,7 +59,6 @@
 				right: 0;
 				top: 0;
 				height: var(--tg-viewport-stable-height, 100vh);
-				width: 100vw;
 				pointer-events: none;
 				transition: all .2s ease;
 		}
@@ -62,6 +70,28 @@
 				right: 0;
 				top: 0;
 				bottom: 0;
+				/* border-width: 4px;
+				border-style: solid; */
+				/* border-image: linear-gradient(45deg, rgba(64, 224, 208, .5), rgba(173, 255, 47, .5)) 1; */
+		}
+
+		#viewport-params-size,
+		#viewport-params-expand {
+				content: attr(text);
+				position: absolute;
+				display: inline-block;
+				background: var(--tg-theme-link-color, rgb(64, 224, 208));
+				right: 4px;
+				left: auto;
+				font-size: 8px;
+				padding: 4px;
+				vertical-align: top;
+		}
+		#viewport-params-size {
+				top: 4px;
+		}
+		#viewport-params-expand {
+				top: 30px;
 		}
 	</style>
 </head>
@@ -82,7 +112,7 @@
 					productName: "Paper Plane",
 					productVersion: "0.3",
 				};
-				var scaleToFit = true;
+				var scaleToFit;
 				// try {
 				// 	scaleToFit = !!JSON.parse("");
 				// } catch (e) {
@@ -122,17 +152,16 @@
 					canvas = instance.Module.canvas;
 					onResize();
 				});
-
 				window.addEventListener('resize', onResize);
 				onResize();
 
-				// if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-				// 	// Mobile device style: fill the whole browser client area with the game canvas:
-				// 	const meta = document.createElement('meta');
-				// 	meta.name = 'viewport';
-				// 	meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0';
-				// 	document.getElementsByTagName('head')[0].appendChild(meta);
-				// }
+				if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+					// Mobile device style: fill the whole browser client area with the game canvas:
+					const meta = document.createElement('meta');
+					meta.name = 'viewport';
+					meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0';
+					document.getElementsByTagName('head')[0].appendChild(meta);
+				}
 			</script>
 		</div>
 	</main>
