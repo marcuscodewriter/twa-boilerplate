@@ -150,10 +150,10 @@
 				}
 				createUnityInstance(canvas, config, progressHandler).then(function (instance) {
 					canvas = instance.Module.canvas;
-					// onResize();
+					if (!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+						onResize();
+					}
 				});
-				// window.addEventListener('resize', onResize);
-				// onResize();
 
 				if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
 					// Mobile device style: fill the whole browser client area with the game canvas:
@@ -161,6 +161,9 @@
 					meta.name = 'viewport';
 					meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0';
 					document.getElementsByTagName('head')[0].appendChild(meta);
+				} else {
+					window.addEventListener('resize', onResize);
+					onResize();
 				}
 			</script>
 		</div>
@@ -170,10 +173,6 @@
 		// Init TWA
 		Telegram.WebApp.ready();
 		Telegram.WebApp.expand();
-		
-		Telegram.WebApp.onEvent('viewportChanged', function() {
-			console.log('Viewport changed');
-		});
 
 		// Event occurs whenever theme settings are changed in the user's Telegram app (including switching to night mode).
 		Telegram.WebApp.onEvent('themeChanged', function() {
