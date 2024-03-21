@@ -65,11 +65,11 @@
 			function progressHandler(progress) {
 				var percent = progress * 100 + '%';
 				// add image with rounded corners above loading bar from assets/loadingIcon.JPG
-				canvas.style.background = 'url(assets/loadingIcon.JPG) no-repeat center, linear-gradient(to right, white, white ' + percent + ', transparent ' + percent + ', transparent) no-repeat center';
-				canvas.style.backgroundSize = '100% 100%';
+				// canvas.style.background = 'url(assets/loadingIcon.JPG) no-repeat center, linear-gradient(to right, white, white ' + percent + ', transparent ' + percent + ', transparent) no-repeat center';
+				// canvas.style.backgroundSize = '100% 100%';
 				// add loading bar with rounded corners
-				// canvas.style.background = 'linear-gradient(to right, white, white ' + percent + ', transparent ' + percent + ', transparent) no-repeat center';
-				// canvas.style.backgroundSize = '100% 1rem';
+				canvas.style.background = 'linear-gradient(to right, white, white ' + percent + ', transparent ' + percent + ', transparent) no-repeat center';
+				canvas.style.backgroundSize = '100% 1rem';
 			}
 			function onResize() {
 				var container = canvas.parentElement;
