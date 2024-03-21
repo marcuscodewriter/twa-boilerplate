@@ -109,7 +109,7 @@
 			var user = Telegram.WebApp.initDataUnsafe.user;
 			var username = user ? user.username : "Guest"; // Use "Guest" or similar if username is not available
 
-			console.log("Hello, " + username + "!");
+			alert("Hello, " + username + "!");
 
 			// Event occurs whenever theme settings are changed in the user's Telegram app (including switching to night mode).
 			Telegram.WebApp.onEvent('themeChanged', function() {
