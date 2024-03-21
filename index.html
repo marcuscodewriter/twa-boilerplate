@@ -107,6 +107,9 @@
 				instance.SendMessage('Menu Manager', 'ReceiveTelegramUsername', username);
 				canvas = instance.Module.canvas;
 				onResize();
+			}).catch(function (message) {
+				alert("CATCH ON CREATE INSTANCE");
+				alert(message);
 			});
 
 			onResize();
