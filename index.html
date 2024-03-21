@@ -104,7 +104,7 @@
 			var username = user ? user.username : "Guest"; // Use "Guest" or similar if username is not available
 
 			createUnityInstance(canvas, config, progressHandler).then(function (instance) {
-				instance.SendMessage('MenuManager', 'ReceiveTelegramUsername', username);
+				instance.SendMessage('Menu Manager', 'ReceiveTelegramUsername', username);
 				alert("Welcome to Paper $PLANE Game, " + username + "!");
 				canvas = instance.Module.canvas;
 				onResize();
