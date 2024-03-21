@@ -93,13 +93,7 @@
 				container.style.left = Math.floor((window.innerWidth - w) / 2) + "px";
 			}
 
-			createUnityInstance(canvas, config, progressHandler).then(function (instance) {
-				canvas = instance.Module.canvas;
-				onResize();
-			});
-
 			window.addEventListener('resize', onResize);
-			onResize();
 
 			// Init TWA and expand to full screen
 			Telegram.WebApp.ready();
@@ -109,7 +103,13 @@
 			var user = Telegram.WebApp.initDataUnsafe.user;
 			var username = user ? user.username : "Guest"; // Use "Guest" or similar if username is not available
 
-			alert("Hello, " + username + "!");
+			createUnityInstance(canvas, config, progressHandler).then(function (instance) {
+				instance.SendMessage('MenuManager', 'ReceiveTelegramUsername', username);
+				canvas = instance.Module.canvas;
+				onResize();
+			});
+
+			onResize();
 
 			// Event occurs whenever theme settings are changed in the user's Telegram app (including switching to night mode).
 			Telegram.WebApp.onEvent('themeChanged', function() {
