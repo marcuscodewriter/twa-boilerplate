@@ -105,7 +105,6 @@
 
 			createUnityInstance(canvas, config, progressHandler).then(function (instance) {
 				instance.SendMessage('Menu Manager', 'ReceiveTelegramUsername', username);
-				alert("Welcome to Paper $PLANE Game, " + username + "!");
 				canvas = instance.Module.canvas;
 				onResize();
 			});
