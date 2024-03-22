@@ -76,20 +76,23 @@
 				var w;
 				var h;
 
-				if (scaleToFit) {
-					w = window.innerWidth;
-					h = window.innerHeight;
+				// w = window.innerWidth;
+				// h = window.innerHeight;
 
-					var r = 1600 / 1200;
+				// if (scaleToFit) {
+				// 	w = window.innerWidth;
+				// 	h = window.innerHeight;
 
-					if (w * r > window.innerHeight) {
-						w = Math.min(w, Math.ceil(h / r));
-					}
-					h = Math.floor(w * r);
-				} else {
-					w = 1200;
-					h = 1600;
-				}
+				// 	var r = 1600 / 1200;
+
+				// 	if (w * r > window.innerHeight) {
+				// 		w = Math.min(w, Math.ceil(h / r));
+				// 	}
+				// 	h = Math.floor(w * r);
+				// } else {
+				// 	w = 1200;
+				// 	h = 1600;
+				// }
 
 				container.style.width = canvas.style.width = w + "px";
 				container.style.height = canvas.style.height = h + "px";
