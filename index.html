@@ -79,6 +79,13 @@
 				w = window.innerWidth;
 				h = window.innerHeight;
 
+				var r = 1600 / 900;
+
+				if (w * r > window.innerHeight) {
+					w = Math.min(w, Math.ceil(h / r));
+				}
+				h = Math.floor(w * r);
+
 				// if (scaleToFit) {
 				// 	w = window.innerWidth;
 				// 	h = window.innerHeight;
