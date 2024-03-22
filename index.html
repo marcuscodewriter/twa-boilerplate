@@ -60,7 +60,7 @@
 			try {
 				scaleToFit = !!JSON.parse("");
 			} catch (e) {
-				scaleToFit = false;
+				scaleToFit = true;
 			}
 			function progressHandler(progress) {
 				var percent = progress * 100 + '%';
@@ -79,12 +79,12 @@
 				w = window.innerWidth;
 				h = window.innerHeight;
 
-				var r = 1600 / 900;
+				var r = 1200 / 1600;
 
-				if (w * r > window.innerHeight) {
-					w = Math.min(w, Math.ceil(h / r));
+				if (h * r > window.innerWidth) {
+					h = Math.min(h, Math.ceil(w / r));
 				}
-				h = Math.floor(w * r);
+				w = Math.floor(h * r);
 
 				// if (scaleToFit) {
 				// 	w = window.innerWidth;
