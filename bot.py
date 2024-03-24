@@ -26,9 +26,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # Send message with button
     # await context.bot.send_message(chat_id=update.effective_chat.id, text=message, reply_markup=reply_markup, parse_mode='Markdown',link_preview_options='{"is_disabled":true}')
-    await context.bot.send_photo(chat_id=update.effective_chat.id,
-                                 photo='https://marcuscodewriter.github.io/twa-boilerplate/assets/loadingIcon.JPG',
-                                #  photo='https://marcuscodewriter.github.io/twa-boilerplate/assets/paperPlaneGif.gif',
+    await context.bot.send_video(chat_id=update.effective_chat.id,
+                                #  photo='https://marcuscodewriter.github.io/twa-boilerplate/assets/loadingIcon.JPG',
+                                 video='https://marcuscodewriter.github.io/twa-boilerplate/assets/paperPlaneGif.gif',
                                  caption=message, reply_markup=reply_markup, caption_entities='[{"type":"text_link","offset":27,"length":52,"url":"https://x.com/paperplane_ton/status/1748511835123511377"},{"type":"bold","offset":27,"length":52}]')
 
 # Main function where the bot is set up and runs
