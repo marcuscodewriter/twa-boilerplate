@@ -89,7 +89,14 @@
 			Telegram.WebApp.expand();
 
 			var user = Telegram.WebApp.initDataUnsafe.user;
-			var username = user ? user.username : "Guest";
+			var username = "Guest"
+			if (user) {
+				if (user.username && user.username.length > 0) {
+					username = user.username;
+				} else if (user.first_name && user.first_name.length > 0) {
+					username = user.first_name;
+				}
+			}
 
 			createUnityInstance(canvas, config, progressHandler).then(function (instance) {
 				instance.SendMessage('Menu Manager', 'ReceiveTelegramUsername', username);
